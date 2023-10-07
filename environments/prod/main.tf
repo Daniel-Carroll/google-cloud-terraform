@@ -1,5 +1,5 @@
 locals {
-  env = "nonprod"
+  env = "prod"
 }
 
 provider "google" {
@@ -7,19 +7,19 @@ provider "google" {
 }
 
 module "vpc" {
-  source  = "../../modules/vpc"
+  source  = "../../modules/google/vpc"
   project = var.project
   env     = local.env
 }
 
 module "http_server" {
-  source  = "../../modules/http_server"
+  source  = "../../modules/google/http_server"
   project = var.project
   subnet  = module.vpc.subnet
 }
 
 module "firewall" {
-  source  = "../../modules/firewall"
+  source  = "../../modules/google/firewall"
   project = var.project
   subnet  = module.vpc.subnet
 }
