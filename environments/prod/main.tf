@@ -13,7 +13,7 @@ module "vpc" {
 }
 
 module "http_server" {
-  source  = "../../modules/googe/http_server"
+  source  = "../../modules/google/http_server"
   project = var.project
   subnet  = module.vpc.subnet
 }
