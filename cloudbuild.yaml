@@ -29,7 +29,7 @@ steps:
     args:
       - "-c"
       - |
-        if [ -d "environments/$BRANCH_NAME/google" ]; then
+        if [ -d "environments/$BRANCH_NAME/" ]; then
           cd environments/$BRANCH_NAME
           terraform init
         else
@@ -54,7 +54,7 @@ steps:
     args:
       - "-c"
       - |
-        if [ -d "environments/$BRANCH_NAME/google" ]; then
+        if [ -d "environments/$BRANCH_NAME/" ]; then
           cd environments/$BRANCH_NAME
           terraform plan
         else
@@ -79,8 +79,8 @@ steps:
     args:
       - "-c"
       - |
-        if [ -d "environments/$BRANCH_NAME/google" ]; then
-          cd environments/$BRANCH_NAME/google      
+        if [ -d "environments/$BRANCH_NAME/" ]; then
+          cd environments/$BRANCH_NAME      
           terraform apply -auto-approve
         else
           echo "***************************** SKIPPING APPLYING *******************************"
